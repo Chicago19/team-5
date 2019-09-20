@@ -1,5 +1,5 @@
 # team-5
 
 # initial start directions
-- cd frontend/my-app
-- npm start
+1. cd frontend/my-app
+2. npm start
