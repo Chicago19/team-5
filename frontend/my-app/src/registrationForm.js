@@ -193,7 +193,7 @@ function RadioButtonsGroup6(props) {
 class registrationPage extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {name: " ", zipcode: 0, email: " ", password: " ", age: 0, q1: " ", q2: " ", q3: " ", q4: " ", q5: " "}
+    this.state = {name: " ", zipcode: 0, email: " ", password: " ", age: 0, q1: " ", q2: " ", q3: " ", q4: " ", q5: " ", english: true}
   }
 
   handleNameChange=(event)=>{
@@ -239,7 +239,16 @@ class registrationPage extends React.Component{
   handleSubmit=(event)=>{
     event.preventDefault();
     axios.post('http://localhost:3001/registration', {
-      username: this.state.score
+      name: " ", 
+      zipcode: 0, 
+      email: " ", 
+      password: " ", 
+      age: 0, 
+      q1: " ", 
+      q2: " ", 
+      q3: " ", 
+      q4: " ", 
+      q5: " "
     }).then(res=>(console.log(res.data["Type"])))
   }
 
