@@ -7,17 +7,6 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors());
 
-app.post('/login', function (req, res) {
-	loginJson = req.body;
-	username = loginJson["username"];
-
-	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
-	password = loginJson["password"];
-
-	res.json({"type" : "teacher"})
-})
-
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/users',
 {
@@ -40,18 +29,37 @@ const User = new Schema({
 });
 
 
-const myModel = mongoose.model('userCollection', User);
+const myModel = mongoose.model('user', User);
 
-const instance = new myModel();
-instance.email = 'hello';
-instance.save(function (err) {
-  //
-});
 
-myModel.find({}, function (err, docs) {
-  // docs.forEach
-  console.log(docs);
-});
+
+app.post('/login', function (req, res) {
+	loginJson = req.body;
+	email = loginJson["email"];
+	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
+	password = loginJson["password"];
+	
+	myModel.find({email: username}, function (err, docs) {
+		if(docs.length != 0)
+		{
+			if (docs[0].password == this.password)
+			{
+				res.send({status: "OK"})
+			} 
+			else{
+				res.send({status: "ERR"})
+			}
+		}
+		else
+		{
+			res.send({status: "ERR"})
+		}
+	});
+	
+})
+
+
+
 
 app.post('/register', function (req, res) {
 	loginJson = req.body;
@@ -95,4 +103,4 @@ app.get('/', function (req, res) {
 
 // Start the server
 
-app.listen(5556)
+app.listen(3001)
