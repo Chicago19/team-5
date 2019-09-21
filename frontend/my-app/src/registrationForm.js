@@ -193,7 +193,7 @@ function RadioButtonsGroup6(props) {
 class registrationPage extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {name: " ", zipcode: 0, email: " ", password: " ", age: 0, q1: " ", q2: " ", q3: " ", q4: " ", q5: " "}
+    this.state = {name: " ", zipcode: 0, email: " ", password: " ", age: 0, q1: " ", q2: " ", q3: " ", q4: " ", q5: " ", english: true}
   }
 
   handleNameChange=(event)=>{
@@ -239,7 +239,16 @@ class registrationPage extends React.Component{
   handleSubmit=(event)=>{
     event.preventDefault();
     axios.post('http://localhost:3001/registration', {
-      username: this.state.score
+      name: this.state.name, 
+      zipcode: this.state.zip, 
+      email: this.state.email, 
+      password: this.state.password, 
+      age: this.state.age, 
+      q1: this.state.q1, 
+      q2: this.state.q2, 
+      q3: this.state.q3, 
+      q4: this.state.q4, 
+      q5: this.state.q5
     }).then(res=>(console.log(res.data["Type"])))
   }
 
@@ -269,6 +278,8 @@ class registrationPage extends React.Component{
                   onChange={handleChange('name')}
                   margin="normal"
                   variant="outlined"
+                  name={this.state.name}
+                  onChange={this.handlePassChange}
                 />
 
                 <TextField
@@ -278,6 +289,8 @@ class registrationPage extends React.Component{
                   onChange={handleChange('zipcode')}
                   margin="normal"
                   variant="outlined"
+                  zipcode={this.state.zipcode}
+                  onChange={this.handlePassChange}
                 />
 
                 <TextField
@@ -289,6 +302,8 @@ class registrationPage extends React.Component{
                   autoComplete="email"
                   margin="normal"
                   variant="outlined"
+                  email={this.state.email}
+                  onChange={this.handlePassChange}
                 />
 
                 <TextField
@@ -297,6 +312,8 @@ class registrationPage extends React.Component{
                   className={classes.textField}
                   margin="normal"
                   variant="outlined"
+                  password={this.state.password}
+                  onChange={this.handlePassChange}
                 />    
 
                 <div className = {classes.menu}>
@@ -311,6 +328,8 @@ class registrationPage extends React.Component{
                   step={1}
                   min={16}
                   max={80}
+                  age={this.state.age}
+                  onChange={this.handlePassChange}
                 />
                 </div>
 
@@ -322,6 +341,8 @@ class registrationPage extends React.Component{
                   d = "Voluntarily "
                   e = "Internet" 
                   f = "Flyer"
+                  q1={this.state.q1}
+                  onChange={this.handlePassChange}
                 />
 
                 <RadioButtonsGroup5 
@@ -332,6 +353,8 @@ class registrationPage extends React.Component{
                   d = "Computers and Technology"
                   e = "Other" 
                   f = "Flyer"
+                  q2={this.state.q2}
+                  onChange={this.handlePassChange}
                 />  
                 <RadioButtonsGroup4
                   question="Please select the location you would like to receive your classes:" 
@@ -339,12 +362,16 @@ class registrationPage extends React.Component{
                   b = "Kedzie/ MFS (6422 S. Kedzie)"
                   c = "Sawyer/ St. Gall Parish (5533 S. Sawyer)"
                   d = "Stevenson/ MFS (8010 S. Kostner)"
+                  q3={this.state.q3}
+                  onChange={this.handlePassChange}
                 /> 
 
                 <RadioButtonsGroup2
                   question="Please select the class time you prefer:" 
                   a = "Morning (AM)" 
                   b = "Evening (PM) "
+                  q4={this.state.q4}
+                  onChange={this.handlePassChange}
                 />    
 
                 <RadioButtonsGroup6
@@ -355,6 +382,8 @@ class registrationPage extends React.Component{
                   d = "Train"
                   e = "Other" 
                   f = "Carpool with a friend or relative"
+                  q5={this.state.q5}
+                  onChange={this.handlePassChange}
                 />  
               </form>
             </form>
