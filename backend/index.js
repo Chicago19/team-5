@@ -1,3 +1,4 @@
+
 const express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
@@ -16,6 +17,42 @@ app.post('/login', function (req, res) {
 	res.json({"type" : "teacher"})
 })
 
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/users',
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+
+const User = new Schema({
+  userID: ObjectId,
+  studentID: String,
+  username: String,
+  email: String,
+  password: String,
+  firstname: String,
+  lastname: String,
+  userType: String
+});
+
+
+const myModel = mongoose.model('userCollection', User);
+
+const instance = new myModel();
+instance.email = 'hello';
+instance.save(function (err) {
+  //
+});
+
+myModel.find({}, function (err, docs) {
+  // docs.forEach
+  console.log(docs);
+});
+
 app.post('/register', function (req, res) {
 	loginJson = req.body;
 	username = loginJson["username"];
@@ -23,7 +60,7 @@ app.post('/register', function (req, res) {
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
 
-	
+
 })
 
 app.post('/score', function(req, res){
@@ -48,11 +85,14 @@ app.post('/score', function(req, res){
 	else{
 		res.json({"level" : "level 4"})
 	}
-	
+
 
 })
 app.get('/', function (req, res) {
-	console.log(req);
+  res.send('Hello World')
 })
 
-app.listen(3001)
+
+// Start the server
+
+app.listen(5556)
