@@ -67,4 +67,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-This state-changes page fixed the textfield prompt saving
+This state-changes page fixed the textfield prompt saving when user inputs 
