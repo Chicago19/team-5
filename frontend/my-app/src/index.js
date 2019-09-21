@@ -6,6 +6,7 @@ import SignIn from './SignIn';
 import Registration from './registrationForm';
 import VenturesTest from './venturesTest';
 import profilePage from './profilePage';
+import policyPage from './Policy';
 
 const routing = (
 	<Router>
@@ -14,6 +15,7 @@ const routing = (
 			<Route path="/registration" component={Registration} />
 			<Route path="/venturestest" component={VenturesTest} />
       		<Route path="/profilePage" component={profilePage} />
+			<Route path="/policyPage" component={policyPage} />
 
 		</div>
 	</Router>

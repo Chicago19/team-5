@@ -393,7 +393,7 @@ class registrationPage extends React.Component{
             variant="contained"
             color="primary"
             className={classes.next}
-            href="/venturestest"
+            href="/policyPage"
             style={{background: '#64b3d8', color: 'white'}}
           >
             Next
