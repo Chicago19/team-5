@@ -185,6 +185,22 @@ function RadioButtonsGroup6(props) {
   );
 }
 
+// sendRegistrationData = (event) =>{
+//   axios.post('http://localhost:3001/registration', {
+//     name: 'Fred Flintstone',
+//     zipcode: '01234',
+//     email: 'fred@flintstone.com',
+//     password: 'abcd',
+//     age: '22',
+//     question1: 'a',
+//     question2: 'a',
+//     question3: 'a',
+//     question4: 'a',
+//     question5: 'a'
+
+//   }).then(res=>(console.log(res.data["Type"])))
+// }
+
 export default function Registration() {
     const classes = useStyles();
 

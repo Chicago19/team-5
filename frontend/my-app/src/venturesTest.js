@@ -67,11 +67,12 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-  function sendScoreData(){
-    axios.post('http://localhost:3001/score', {
-      score: 5
-    }).then("DO SOMETHIHNG WITH THIS DATA")
-  }
+//   sendScoreData = (event) =>{
+//     event.preventDefault();
+//     axios.post('http://localhost:3001/score', {
+//       score: 5
+//     }).then(res=>(console.log(res.data["Type"])))
+//   }
 
   function RadioButtonsGroup(props) {
     const [correct, setCorrect] = React.useState(0);
@@ -117,7 +118,7 @@ const useStyles = makeStyles(theme => ({
             src={require("./party.png")} 
             style={{width: 420, height: 240, margin: 10}}
             />
-            <form className={classes.form} noValidate>
+            <form className={classes.form} noValidate onSubmit={this.sendScoreData}>
             <RadioButtonsGroup 
             question="1. What's the mother's name?" 
             a = "His name is Pilar." 
@@ -155,7 +156,6 @@ const useStyles = makeStyles(theme => ({
                 color="primary"
                 className={classes.next}
                 href="/venturestest"
-                onClick={sendScoreData()}
                 >
                 Next
             </Button>
