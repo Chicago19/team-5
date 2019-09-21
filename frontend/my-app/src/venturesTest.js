@@ -18,21 +18,10 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 
-function Copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -66,14 +55,6 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3),
     },
   }));
-
-//   sendScoreData = (event) =>{
-//     event.preventDefault();
-//     axios.post('http://localhost:3001/score', {
-//       score: 5
-//     }).then(res=>(console.log(res.data["Type"])))
-//   }
-
   function RadioButtonsGroup(props) {
     const [correct, setCorrect] = React.useState(0);
 
@@ -104,10 +85,26 @@ const useStyles = makeStyles(theme => ({
     );
   }
 
-  export default function VenturesTest() {
-    const [count, setCount] = React.useState(0);
-    const classes = useStyles();
-    return (
+  class testPage extends React.Component{
+    constructor(props) {
+      super(props);
+      this.state = {score: 0}
+    }
+
+    handleScoreChange=(event)=>{
+        this.setState({score: event.target.value});
+     }
+   
+    handleSubmit=(event)=>{
+       event.preventDefault();
+      axios.post('http://localhost:3001/score', {
+         username: this.state.score
+       }).then(res=>(console.log(res.data["Type"])))
+     }
+  
+    render() {
+        const { classes }= this.props;
+        return (
         <Container component="main" maxWidth="xs">
           <Typography variant="h4" className={classes.title}>
             Ventures Test
@@ -127,7 +124,6 @@ const useStyles = makeStyles(theme => ({
             d = "Your name is Pilar."
             answer = "b"
             >
-            {() => setCount(count + this.state.correct)}
             </RadioButtonsGroup>
 
             <RadioButtonsGroup 
@@ -137,7 +133,7 @@ const useStyles = makeStyles(theme => ({
             c = "cake"
             d = "plate"
             answer = "b"
-            >{() => setCount(count + this.state.correct)}
+            >
             </RadioButtonsGroup>
 
             <RadioButtonsGroup 
@@ -147,7 +143,7 @@ const useStyles = makeStyles(theme => ({
             c = "Yes, he is."
             d = "Yes, they are."
             answer = "a"
-            >{() => setCount(count + this.state.correct)}
+            >
             </RadioButtonsGroup>
             <Button
                 type="next"
@@ -155,15 +151,15 @@ const useStyles = makeStyles(theme => ({
                 variant="contained"
                 color="primary"
                 className={classes.next}
-                href="/venturestest"
+                href="/profilePage"
                 >
                 Next
             </Button>
             </form>
           </div>
-          <Box mt={8}>
-            <Copyright />
-          </Box>
         </Container>
       );
+    }
   }
+
+  export default withStyles(useStyles)(testPage);
