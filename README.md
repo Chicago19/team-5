@@ -8,3 +8,5 @@
 3. npm start
 
 # Running the server
+1. cd ./backend
+2. node index.js
