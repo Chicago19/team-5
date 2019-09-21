@@ -58,7 +58,7 @@ class profilePage extends React.Component {
 			 	</div>
 				<br /> <br /> <br /> <br />
 				 <Button
-					type="next"
+					type="submit"
 					fullWidth
 					size = "large"
 					variant="contained"

@@ -269,7 +269,6 @@ class registrationPage extends React.Component{
             <Typography>
               Thank you for considering PODER as your new educational home. Please fill out the following registration form and review our policies on the back. We look forward to seeing you in the classroom!
             </Typography>
-            <form className={classes.form} noValidate>
               <form className={classes.container} noValidate autoComplete="off">
                 <TextField
                   id="outlined-name"
@@ -387,10 +386,9 @@ class registrationPage extends React.Component{
                   onChange={this.handleQ5Change}
                 />  
               </form>
-            </form>
           </div>
           <Button
-            type="next"
+            type="submit"
             fullWidth
             variant="contained"
             color="primary"
