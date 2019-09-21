@@ -1,6 +1,7 @@
 # team-5
 
-# poder
+# Code for good 
+We created an app to help the non profit company Poder.
 
 # Initial start directions
 1. npm install
