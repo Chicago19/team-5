@@ -12,6 +12,16 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+<<<<<<< Updated upstream
+=======
+import axios from 'axios';
+
+
+
+function handleEmailChange(e) {
+   this.setState({value: e.target.value});
+}
+>>>>>>> Stashed changes
 
 function Copyright() {
   return (
@@ -26,6 +36,16 @@ function Copyright() {
   );
 }
 
+<<<<<<< Updated upstream
+=======
+function sendLoginData(){
+  axios.post('http://localhost:3001/login', {
+    username: 'Fred',
+    password: 'Flintstone'
+  }).then(res=>(console.log(res.data["Type"])))
+}
+
+>>>>>>> Stashed changes
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -64,7 +84,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -75,6 +95,12 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+<<<<<<< Updated upstream
+=======
+            value={this.state.email} 
+            onChange={this.handleEmailChange} 
+           
+>>>>>>> Stashed changes
           />
           <TextField
             variant="outlined"
@@ -86,6 +112,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            
           />
           <Button
             type="submit"
@@ -93,6 +120,10 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+<<<<<<< Updated upstream
+=======
+            onClick={sendLoginData()}
+>>>>>>> Stashed changes
           >
             Sign In
           </Button>
