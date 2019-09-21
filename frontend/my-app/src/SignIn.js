@@ -106,7 +106,6 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            style={{width: 50, height: 50}}
             onClick={sendLoginData()}
           >
             Sign In

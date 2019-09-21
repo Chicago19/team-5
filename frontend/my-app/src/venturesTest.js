@@ -33,8 +33,7 @@ function Copyright() {
       </Typography>
     );
   }
-
-  const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
         backgroundColor: theme.palette.common.white,
@@ -69,38 +68,36 @@ function Copyright() {
   }));
 
   function RadioButtonsGroup(props) {
+    const [correct, setCorrect] = React.useState(false);
     const classes = useStyles();
     const [value, setValue] = React.useState("e");
 
-  
     function handleChange(event) {
       setValue(event.target.value);
-    }
-
-    function checkAnswer(value,answer) {
-        if (value == answer) {
-            this.setScore(this.score + 1)
-        }
+      if (value == props.answer) {
+        setCorrect(true)
+      }else{
+        setCorrect(false)
+      }
     }
 
     return (
       <div>
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend"> {props.question} </FormLabel>
-          <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
+          <RadioGroup aria-label="Question" name="Question" value={value} onChange={handleChange}>
             <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
             <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
             <FormControlLabel value= "c" control={<Radio />} label= {props.c} />
             <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
           </RadioGroup>
         </FormControl>
-        {checkAnswer(value,props.answer)}
       </div>
     );
   }
 
   export default function VenturesTest() {
-    const [score, setScore] = useState(0);
+    const [count, setCount] = React.useState(0);
     const classes = useStyles();
     return (
         <Container component="main" maxWidth="xs">
@@ -121,7 +118,7 @@ function Copyright() {
             c = "Their name is Pilar."
             d = "Your name is Pilar."
             answer = "b"
-            />
+            ></RadioButtonsGroup>
 
             <RadioButtonsGroup 
             question="2. There are three __ on the table." 
