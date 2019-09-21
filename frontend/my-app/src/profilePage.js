@@ -30,10 +30,14 @@ class profilePage extends React.Component {
 		      <div className="root">
 			     <AppBar position="static" className="bar" style={{ background: 'lightgrey' }}>
 			        <Toolbar>
+				        <img className="logo-full"
+				          src={require("./poder-full.png")} 
+				          style={{width: 121.6, height: 49.8, margin: 20}}
+				         />
 			          <Typography variant="h6" className="title">
 			            Profile Dashboard
 			          </Typography>
-			          <Button color="inherit" className="login" style={{marginLeft: 1100}}>User Name</Button>
+			          <Button color="inherit" className="login" style={{marginLeft: 1100}}>Username</Button>
 			        </Toolbar>
 			      </AppBar>
 			   </div>
