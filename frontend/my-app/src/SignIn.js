@@ -72,14 +72,14 @@ class loginPage extends React.Component{
   render() {
     const { classes } = this.props;
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" style={{marginTop: 50}}>
         <CssBaseline />
         <div className={classes.paper}>
          <img className="logo"
           src={require("./poder-small.png")} 
-          style={{width: 75, height: 75, margin: 10}}
+          style={{width: 75, height: 75, margin: 10, marginLeft: 140}}
           />
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{marginLeft: 140}}>
             Sign in
           </Typography>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
@@ -108,6 +108,7 @@ class loginPage extends React.Component{
               value={this.state.value}
               onChange={this.handlePassChange}
             />
+             <br /> <br /> <br />
             <Button
               type="submit"
               fullWidth
@@ -118,6 +119,7 @@ class loginPage extends React.Component{
             >
               Sign In
             </Button>
+             <br /> <br />
             <Button
               type="submit"
               fullWidth
