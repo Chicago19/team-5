@@ -7,7 +7,7 @@
 2. cd frontend/my-app
 3. npm start
 
-#Technologies
+# Technologies
 * React, MongoDB, Node.js, Mongoose
 
 # Running the server
