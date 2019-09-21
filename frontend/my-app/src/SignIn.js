@@ -113,7 +113,7 @@ class loginPage extends React.Component{
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              style={{background: '#56aad2', color: 'white'}}
               className={classes.submit}
               //onClick={this.sendLoginData(this.state.username, this.state.password)}
             >
@@ -124,7 +124,7 @@ class loginPage extends React.Component{
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              style={{background: '#56aad2', color: 'white'}}
               className={classes.newUser}
               href="/registration"
             >
