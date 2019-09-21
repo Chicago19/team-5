@@ -1,0 +1,15 @@
+.root {
+   width: 100%;
+}
+.bar {
+	width: 100%;
+}
+.menuButton {
+  marginRight: theme.spacing(2),
+}
+.title {
+  flexGrow: 1,
+}
+.login {
+	margin-left: 1110px;
+}
