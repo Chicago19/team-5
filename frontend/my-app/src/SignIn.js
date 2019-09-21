@@ -13,7 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
+
 import { withStyles } from "@material-ui/core/styles";
+function sendLoginData(){
+  axios.post('http://localhost:3001/login', {
+    username: 'Fred',
+    password: 'Flintstone'
+  }).then("DO SOMETHIHNG WITH THIS DATA")
+}
 
 const useStyles = makeStyles(theme => ({
     '@global': {
