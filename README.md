@@ -1,6 +1,6 @@
-# team-5
+# team-5 Code for good 
 
-# Code for good 
+# Poder
 We created an app to help the non profit company Poder. It is an all in one dashboard to help automate tedious tasks such as manual data entry.
 
 # Initial start directions
