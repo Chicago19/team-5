@@ -238,16 +238,16 @@ class registrationPage extends React.Component{
 
   handleSubmit=(event)=>{
     event.preventDefault();
-    axios.post('http://localhost:3001/registration', {
-      name: this.state.name, 
-      zipcode: this.state.zip, 
-      email: this.state.email, 
-      password: this.state.password, 
-      age: this.state.age, 
-      q1: this.state.q1, 
-      q2: this.state.q2, 
-      q3: this.state.q3, 
-      q4: this.state.q4, 
+    axios.post('http://localhost:3005/registration', {
+      name: this.state.name,
+      zipcode: this.state.zip,
+      email: this.state.email,
+      password: this.state.password,
+      age: this.state.age,
+      q1: this.state.q1,
+      q2: this.state.q2,
+      q3: this.state.q3,
+      q4: this.state.q4,
       q5: this.state.q5
     }).then(res=>(console.log(res.data["Type"])))
   }
@@ -314,7 +314,7 @@ class registrationPage extends React.Component{
                   variant="outlined"
                   password={this.state.password}
                   onChange={this.handlePassChange}
-                />    
+                />
 
                 <div className = {classes.menu}>
                 <Typography>
@@ -333,58 +333,58 @@ class registrationPage extends React.Component{
                 />
                 </div>
 
-                <RadioButtonsGroup6 
-                  question="How did you hear about PODER?" 
-                  a = "Friend or Relative" 
+                <RadioButtonsGroup6
+                  question="How did you hear about PODER?"
+                  a = "Friend or Relative"
                   b = "Community Organization"
                   c = "Church"
                   d = "Voluntarily "
-                  e = "Internet" 
+                  e = "Internet"
                   f = "Flyer"
                   q1={this.state.q1}
                   onChange={this.handlePassChange}
                 />
 
-                <RadioButtonsGroup5 
-                  question="What is your primary reason for choosing PODER?" 
-                  a = "To learn English" 
+                <RadioButtonsGroup5
+                  question="What is your primary reason for choosing PODER?"
+                  a = "To learn English"
                   b = "To obtain a job "
                   c = "Training/ Job Assistance"
                   d = "Computers and Technology"
-                  e = "Other" 
+                  e = "Other"
                   f = "Flyer"
                   q2={this.state.q2}
                   onChange={this.handlePassChange}
-                />  
+                />
                 <RadioButtonsGroup4
-                  question="Please select the location you would like to receive your classes:" 
-                  a = "Pulaski/ Marquette Bank (6155 S. Pulaski)" 
+                  question="Please select the location you would like to receive your classes:"
+                  a = "Pulaski/ Marquette Bank (6155 S. Pulaski)"
                   b = "Kedzie/ MFS (6422 S. Kedzie)"
                   c = "Sawyer/ St. Gall Parish (5533 S. Sawyer)"
                   d = "Stevenson/ MFS (8010 S. Kostner)"
                   q3={this.state.q3}
                   onChange={this.handlePassChange}
-                /> 
+                />
 
                 <RadioButtonsGroup2
-                  question="Please select the class time you prefer:" 
-                  a = "Morning (AM)" 
+                  question="Please select the class time you prefer:"
+                  a = "Morning (AM)"
                   b = "Evening (PM) "
                   q4={this.state.q4}
                   onChange={this.handlePassChange}
-                />    
+                />
 
                 <RadioButtonsGroup6
-                  question="What is your main form of transportation?" 
-                  a = "Walking" 
+                  question="What is your main form of transportation?"
+                  a = "Walking"
                   b = "Bus"
                   c = "Car"
                   d = "Train"
-                  e = "Other" 
+                  e = "Other"
                   f = "Carpool with a friend or relative"
                   q5={this.state.q5}
                   onChange={this.handlePassChange}
-                />  
+                />
               </form>
             </form>
           </div>

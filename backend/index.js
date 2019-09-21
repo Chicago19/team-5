@@ -22,15 +22,12 @@ const User = new Schema({
   studentID: String,
   email: String,
   password: String,
-  firstname: String,
-  lastname: String,
+  name: String,
   userType: String,
   score: Number
+	age: Number
 });
 
-
-
-const myModel = mongoose.model('usercollection', User);
 
 
 
@@ -39,7 +36,7 @@ app.post('/login', function (req, res) {
 	email = loginJson["email"];
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
-
+	const myModel = mongoose.model('usercollection', User);
 	myModel.find({email: email}, function (err, docs) {
 		if(docs.length != 0)
 		{
@@ -68,15 +65,15 @@ app.post('/registration', function (req, res) {
 
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
-
+	const myModel = mongoose.model('usercollection', User);
   var instance = new myModel();
   instance.userID = ObjectId;
   instance.studentID = null;
   instance.username = username;
   instance.email = email;
   instance.password = password;
-  instance.firstname = null;
-  instance.lastname = null;
+  instance.name = loginJson['name'];
+	instance.age = loginJson['age'];
   instance.userType = 'stu'
   instance.save(function (err) {
     //
@@ -117,4 +114,4 @@ app.get('/', function (req, res) {
 
 // Start the server
 
-app.listen(3004)
+app.listen(3005)

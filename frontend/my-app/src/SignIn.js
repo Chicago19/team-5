@@ -61,7 +61,7 @@ class loginPage extends React.Component{
     event.preventDefault();
     console.log(this.state.username)
     console.log(this.state.password)
-   axios.post('http://localhost:3001/login', {
+   axios.post('http://localhost:3005/login', {
       username: this.state.username,
       password: this.state.password
     }).then(res=>(console.log(res.data["Type"])))
@@ -74,7 +74,7 @@ class loginPage extends React.Component{
         <CssBaseline />
         <div className={classes.paper}>
          <img className="logo"
-          src={require("./poder-small.png")} 
+          src={require("./poder-small.png")}
           style={{width: 75, height: 75, margin: 10, marginLeft: 140}}
           />
           <Typography component="h1" variant="h5" style={{marginLeft: 140}}>
