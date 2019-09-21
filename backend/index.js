@@ -62,7 +62,7 @@ app.post('/login', function (req, res) {
 
 
 
-app.post('/register', function (req, res) {
+app.post('/registration', function (req, res) {
 	loginJson = req.body;
 	email = loginJson["email"];
 
