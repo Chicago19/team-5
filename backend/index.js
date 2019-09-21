@@ -1,8 +1,15 @@
 const express = require('express')
 const app = express()
+var cors = require('cors')
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
+app.use(cors());
+
+app.post('/login', function (req, res) {
+	console.log(req);
 })
 
-app.listen(5555)
+app.get('/', function (req, res) {
+	console.log(req);
+})
+
+app.listen(3001)
