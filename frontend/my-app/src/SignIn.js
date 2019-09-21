@@ -66,9 +66,10 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+       <img className="logo"
+        src={require("./small-logo.png")} 
+        style={{width: 75, height: 75, margin: 10}}
+        />
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
@@ -94,10 +95,6 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
           />
           <Button
             type="submit"
