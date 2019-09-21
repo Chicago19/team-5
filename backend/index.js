@@ -1,24 +1,33 @@
-
 const express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
+const mongoose = require('mongoose');
 const app = express()
+
 
 app.use(bodyParser.json())
 app.use(cors());
 
 app.post('/login', function (req, res) {
 	loginJson = req.body;
-	username = loginJson["username"];
+	email = loginJson["email"];
 
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
+
+  var myModel = mongoose.model('usercollection', User);
+  var instance = new myModel();
+console.log("here");
+  myModel.find({email: email}, function (err, docs) {
+    // docs.forEach
+		console.log(docs)
+  });
+
 
 	res.json({"type" : "teacher"})
 })
 
 
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/users',
 {
   useNewUrlParser: true,
@@ -31,34 +40,36 @@ const ObjectId = Schema.ObjectId;
 const User = new Schema({
   userID: ObjectId,
   studentID: String,
-  username: String,
   email: String,
   password: String,
   firstname: String,
   lastname: String,
-  userType: String
+  userType: String,
+  score: Number
 });
 
 
-const myModel = mongoose.model('userCollection', User);
-
-const instance = new myModel();
-instance.email = 'hello';
-instance.save(function (err) {
-  //
-});
-
-myModel.find({}, function (err, docs) {
-  // docs.forEach
-  console.log(docs);
-});
 
 app.post('/register', function (req, res) {
 	loginJson = req.body;
-	username = loginJson["username"];
+	email = loginJson["email"];
 
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
+
+  var myModel = mongoose.model('userCollection', User);
+  var instance = new myModel();
+  instance.userID = ObjectId;
+  instance.studentID = null;
+  instance.username = username;
+  instance.email = email;
+  instance.password = password;
+  instance.firstname = null;
+  instance.lastname = null;
+  instance.userType = 'stu'
+  instance.save(function (err) {
+    //
+  });
 
 
 })
@@ -89,10 +100,7 @@ app.post('/score', function(req, res){
 
 })
 app.get('/', function (req, res) {
-  res.send('Hello World')
+	console.log(req);
 })
 
-
-// Start the server
-
-app.listen(5556)
+app.listen(3002)

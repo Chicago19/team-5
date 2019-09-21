@@ -31,7 +31,7 @@ function Copyright() {
 }
 
 function sendLoginData(){
-  axios.post('http://localhost:3001/login', {
+  axios.post('http://localhost:3002/login', {
     username: 'Fred',
     password: 'Flintstone'
   }).then("DO SOMETHIHNG WITH THIS DATA")
@@ -70,7 +70,7 @@ export default function SignIn() {
       <CssBaseline />
       <div className={classes.paper}>
        <img className="logo"
-        src={require("./small-logo.png")} 
+        src={require("./small-logo.png")}
         style={{width: 75, height: 75, margin: 10}}
         />
         <Typography component="h1" variant="h5">
@@ -87,7 +87,7 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
-           
+
           />
           <TextField
             variant="outlined"
