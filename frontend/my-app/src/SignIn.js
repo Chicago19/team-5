@@ -14,6 +14,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -29,8 +32,8 @@ function Copyright() {
 
 function sendLoginData(){
   axios.post('http://localhost:3001/login', {
-    firstName: 'Fred',
-    lastName: 'Flintstone'
+    username: 'Fred',
+    password: 'Flintstone'
   }).then("DO SOMETHIHNG WITH THIS DATA")
 }
 
@@ -84,6 +87,7 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+           
           />
           <TextField
             variant="outlined"
@@ -102,6 +106,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            style={{width: 50, height: 50}}
             onClick={sendLoginData()}
           >
             Sign In
