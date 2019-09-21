@@ -1,6 +1,6 @@
-import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -70,7 +70,7 @@ function Copyright() {
 
   function RadioButtonsGroup(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState('female');
+    const [value, setValue] = React.useState("e");
 
   
     function handleChange(event) {
@@ -82,17 +82,21 @@ function Copyright() {
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend"> {props.question} </FormLabel>
           <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
-            <FormControlLabel value="1" control={<Radio />} label= {props.a} />
-            <FormControlLabel value="2" control={<Radio />} label= {props.b} />
-            <FormControlLabel value="3" control={<Radio />} label= {props.c} />
-            <FormControlLabel value="4" control={<Radio />} label= {props.d} />
+            <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
+            <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
+            <FormControlLabel value= "c" control={<Radio />} label= {props.c} />
+            <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
           </RadioGroup>
         </FormControl>
+        if (value == {props.answer}) {
+            () => this.setScore(this.score + 1)
+        }
       </div>
     );
   }
 
   export default function VenturesTest() {
+    const [score, setScore] = useState(0);
     const classes = useStyles();
     return (
         <Container component="main" maxWidth="xs">
@@ -112,6 +116,7 @@ function Copyright() {
             b = "Her name is Pilar." 
             c = "Their name is Pilar."
             d = "Your name is Pilar."
+            answer = "b"
             />
 
             <RadioButtonsGroup 
@@ -120,6 +125,7 @@ function Copyright() {
             b = "cups"
             c = "cake"
             d = "plate"
+            answer = "b"
             />
 
             <RadioButtonsGroup 
@@ -128,15 +134,9 @@ function Copyright() {
             b = "Yes, we are."
             c = "Yes, he is."
             d = "Yes, they are."
+            answer = "a"
             />
 
-            <RadioButtonsGroup 
-            question="2. There are three __ on the table." 
-            a = "cup"
-            b = "cups"
-            c = "cake"
-            d = "plate"
-            />
             </form>
           </div>
           <Box mt={8}>
