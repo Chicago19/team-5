@@ -13,117 +13,126 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-function sendLoginData(){
-  axios.post('http://localhost:3001/login', {
-    username: 'Fred',
-    password: 'Flintstone'
-  }).then(res=>(console.log(res.data["Type"])))
-}
+import { withStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-  '@global': {
-    body: {
-      backgroundColor: theme.palette.common.white,
+    '@global': {
+      body: {
+        backgroundColor: theme.palette.common.white,
+      },
     },
-  },
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+    }));
 
-export default function SignIn() {
-  const classes = useStyles();
+class loginPage extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {username: '', password: ''}
+  }
 
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-       <img className="logo"
-        src={require("./poder-small.png")} 
-        style={{width: 75, height: 75, margin: 10}}
-        />
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-        
-           
+ handleEmailChange=(event)=>{
+     this.setState({username: event.target.value});
+     console.log(this.state.username)
+  }
+
+  handlePassChange=(event)=>{
+     this.setState({password: event.target.value});
+     console.log(this.state.password)
+     console.log(this)
+  }
+
+  handleSubmit=(event)=>{
+    event.preventDefault();
+    console.log(this.state.username)
+    console.log(this.state.password)
+   axios.post('http://localhost:3001/login', {
+      username: this.state.username,
+      password: this.state.password
+    }).then(res=>(console.log(res.data["Type"])))
+
+
+  }
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+         <img className="logo"
+          src={require("./poder-small.png")} 
+          style={{width: 75, height: 75, margin: 10}}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={sendLoginData()}
-          >
-            Sign In
-          </Button>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.newUser}
-            href="/registration"
-          >
-            New User
-          </Button>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={this.state.value}
+              onChange={this.handleEmailChange}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              value={this.state.value}
+              onChange={this.handlePassChange}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              //onClick={this.sendLoginData(this.state.username, this.state.password)}
+            >
+              Sign In
+            </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.newUser}
+              href="/registration"
+            >
+              New User
+            </Button>
+          </form>
+        </div>
+      </Container>
+    );
+  }
 }
+
+export default withStyles(useStyles)(loginPage);
