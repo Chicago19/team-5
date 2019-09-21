@@ -16,3 +16,6 @@ We created an app to help the non profit company Poder. It is an all in one dash
 1. cd ./backend
 2. mongo
 3. node index.js
+
+# License
+MIT License
