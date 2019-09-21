@@ -13,10 +13,9 @@ import Grid from '@material-ui/core/Grid';
 import './profilePage.css';
 
 
-
 class profilePage extends React.Component {
 	render() {
-		//const {classes} = this.props;
+		const {theme} = this.props;
 
 	    function handleDrawerOpen() {
 	      this.setOpen(true);
@@ -29,7 +28,7 @@ class profilePage extends React.Component {
 		return (
 			 <div className="Nav-Bar">
 		      <div className="root">
-			      <AppBar position="static" className="bar">
+			     <AppBar position="static" className="bar" style={{ background: 'lightgrey' }}>
 			        <Toolbar>
 			          <Typography variant="h6" className="title">
 			            Profile Dashboard
@@ -38,15 +37,30 @@ class profilePage extends React.Component {
 			        </Toolbar>
 			      </AppBar>
 			   </div>
+			   <br /> <br /> <br /> <br />
+			   <div className="card-box">
+			 		<p className="Classes"> Classes </p>
+			 		<p className="description"> (Click here to view classes) </p>
+			 	</div>
+			 	 <br /> <br /> <br /> <br />
+			 	<div className="card-box">
+			 		<p className="Classes"> Calendar </p>
+			 		<p className="description"> (Click here to view calendar) </p>
+			 	</div>
+			 	 <br /> <br /> <br /> <br />
+			 	<div className="card-box">
+			 		<p className="Classes"> Classes </p>
+			 		<p className="description"> (Click here to view classes) </p>
+			 	</div>
 		      <Paper className="papers" style={{marginTop: 100, height: 100, width:950, marginLeft: 225}}>
-		        <Typography variant="h5" component="h3" style={{marginLeft: 50, marginTop: 75}}>
+		        <Typography variant="h5" component="h3" style={{marginLeft: 50}}>
 		          Classes
 		        </Typography>
-		        <Typography component="p">
+		        <Typography component="p" className="description">
 		          (click to view course page)
 		        </Typography>
 		      </Paper>
-		      <Paper className="papers" style={{marginTop: 100, height: 100, width:950, marginLeft: 225}} color="secondary">
+		      <Paper className="papers" style={{marginTop: 100, height: 100, width:950, marginLeft: 225}}>
 		        <Typography variant="h5" component="h3">
 		          Calendar 
 		        </Typography>
