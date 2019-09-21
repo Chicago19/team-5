@@ -279,7 +279,7 @@ class registrationPage extends React.Component{
                   margin="normal"
                   variant="outlined"
                   name={this.state.name}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleNameChange}
                 />
 
                 <TextField
@@ -290,7 +290,7 @@ class registrationPage extends React.Component{
                   margin="normal"
                   variant="outlined"
                   zipcode={this.state.zipcode}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleZipChange}
                 />
 
                 <TextField
@@ -303,7 +303,7 @@ class registrationPage extends React.Component{
                   margin="normal"
                   variant="outlined"
                   email={this.state.email}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleEmailChange}
                 />
 
                 <TextField
@@ -323,13 +323,14 @@ class registrationPage extends React.Component{
                 <Slider
                   defaultValue={32}
                   aria-labelledby="Age"
+                  style={{color: '#64b3d8', background: 'white'}}
                   aria-label = "Age"
                   valueLabelDisplay="auto"
                   step={1}
                   min={16}
                   max={80}
                   age={this.state.age}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleAgeChange}
                 />
                 </div>
 
@@ -342,7 +343,7 @@ class registrationPage extends React.Component{
                   e = "Internet" 
                   f = "Flyer"
                   q1={this.state.q1}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleQ1Change}
                 />
 
                 <RadioButtonsGroup5 
@@ -354,7 +355,7 @@ class registrationPage extends React.Component{
                   e = "Other" 
                   f = "Flyer"
                   q2={this.state.q2}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleQ2Change}
                 />  
                 <RadioButtonsGroup4
                   question="Please select the location you would like to receive your classes:" 
@@ -363,7 +364,7 @@ class registrationPage extends React.Component{
                   c = "Sawyer/ St. Gall Parish (5533 S. Sawyer)"
                   d = "Stevenson/ MFS (8010 S. Kostner)"
                   q3={this.state.q3}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleQ3Change}
                 /> 
 
                 <RadioButtonsGroup2
@@ -371,7 +372,7 @@ class registrationPage extends React.Component{
                   a = "Morning (AM)" 
                   b = "Evening (PM) "
                   q4={this.state.q4}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleQ4Change}
                 />    
 
                 <RadioButtonsGroup6
@@ -383,7 +384,7 @@ class registrationPage extends React.Component{
                   e = "Other" 
                   f = "Carpool with a friend or relative"
                   q5={this.state.q5}
-                  onChange={this.handlePassChange}
+                  onChange={this.handleQ5Change}
                 />  
               </form>
             </form>
@@ -395,6 +396,7 @@ class registrationPage extends React.Component{
             color="primary"
             className={classes.next}
             href="/venturestest"
+            style={{background: '#64b3d8', color: 'white'}}
           >
             Next
           </Button>

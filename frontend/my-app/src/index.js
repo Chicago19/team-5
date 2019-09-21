@@ -13,7 +13,6 @@ const routing = (
 			<Route exact path="/" component={SignIn} />
 			<Route path="/registration" component={Registration} />
 			<Route path="/venturestest" component={VenturesTest} />
-
       		<Route path="/profilePage" component={profilePage} />
 
 		</div>

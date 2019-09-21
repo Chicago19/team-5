@@ -113,6 +113,7 @@ class loginPage extends React.Component{
               variant="contained"
               style={{background: '#64b3d8', color: 'white'}}
               className={classes.submit}
+              href="/profilePage"
               //onClick={this.sendLoginData(this.state.username, this.state.password)}
             >
               Sign In

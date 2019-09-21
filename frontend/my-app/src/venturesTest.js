@@ -152,6 +152,7 @@ const useStyles = makeStyles(theme => ({
                 color="primary"
                 className={classes.next}
                 href="/profilePage"
+                style={{backgroundColor: '#64b3d8'}}
                 >
                 Next
             </Button>
