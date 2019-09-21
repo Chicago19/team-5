@@ -7,13 +7,13 @@ import SignIn from './SignIn';
 import Registration from './registrationForm';
 import VenturesTest from './venturesTest';
 
-
 const routing = (
 	<Router>
 		<div>	
 			<Route exact path="/" component={SignIn} />
 			<Route path="/registration" component={Registration} />
 			<Route path="/venturestest" component={VenturesTest} />
+      <Route path="/profilePage" component={profilePage} />
 		</div>
 	</Router>
 )
