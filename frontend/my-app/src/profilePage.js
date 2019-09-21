@@ -37,7 +37,9 @@ class profilePage extends React.Component {
 			          <Typography variant="h6" className="title" style={{marginLeft: 20}}>
 			            Dashboard
 			          </Typography>
-			          <Button color="inherit" className="login" style={{marginLeft: 1050}}>Username</Button>
+			          <Button color="inherit" className="login" style={{marginLeft: 1050}} href="/">
+						  Logout
+					  </Button>
 			        </Toolbar>
 			      </AppBar>
 			   </div>
