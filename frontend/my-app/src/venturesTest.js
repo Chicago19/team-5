@@ -145,7 +145,55 @@ const useStyles = makeStyles(theme => ({
             answer = "a"
             >
             </RadioButtonsGroup>
-            <Button
+            </form>
+          </div>
+
+          <div className={classes.paper}>
+           <img className="logo"
+            src={require("./carmina.png")} 
+            style={{width: 420, height: 140, margin: 10}}
+            />
+            <form className={classes.form} noValidate onSubmit={this.sendScoreData}>
+            <RadioButtonsGroup 
+            question="4. Carmina's Resturant is open __." 
+            a = "on Sunday" 
+            b = "on Tuesday" 
+            c = "on Saturday"
+            d = "on Monday"
+            answer = "b"
+            >
+            </RadioButtonsGroup>
+            </form>
+          </div>
+
+          <div className={classes.paper}>
+           <img className="logo"
+            src={require("./daycare.png")} 
+            style={{width: 420, height: 240, margin: 10}}
+            />
+            <form className={classes.form} noValidate onSubmit={this.sendScoreData}>
+            <RadioButtonsGroup 
+            question="5. How many people work at the day-care center?" 
+            a = "three" 
+            b = "four" 
+            c = "five"
+            d = "six"
+            answer = "b"
+            >
+            </RadioButtonsGroup>
+
+            <RadioButtonsGroup 
+            question="6. Who works until 8:00 p.m. on Tuesday and Thursday?" 
+            a = "Dan"
+            b = "Juan"
+            c = "Megan"
+            d = "Sally"
+            answer = "d"
+            >
+            </RadioButtonsGroup>
+            </form>
+          </div>
+          <Button
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -156,8 +204,6 @@ const useStyles = makeStyles(theme => ({
                 >
                 Next
             </Button>
-            </form>
-          </div>
         </Container>
       );
     }
