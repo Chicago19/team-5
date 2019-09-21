@@ -9,10 +9,20 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
+import Checkbox from '@material-ui/core/Checkbox';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 function Copyright() {
   return (
@@ -28,91 +38,263 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2),
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white,
+    },
   },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
+  title: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+  paper: {
+    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
   },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
   },
-  cardContent: {
-    flexGrow: 1,
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+  formControl: {
+      margin: theme.spacing(3),
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+  dense: {
+    marginTop: theme.spacing(2),
+  },
+  menu: {
+    width: 200,
   },
 }));
 
-const cards = [1, 2, 3];
-
-export default function Registration() {
+function RadioButtonsGroup2(props) {
   const classes = useStyles();
+  const [value, setValue] = React.useState("e");
+
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <main>
-        {/* Hero unit */}
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
+    <div>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend"> {props.question} </FormLabel>
+        <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
+          <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
+          <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
+        </RadioGroup>
+      </FormControl>
+    </div>
   );
+}
+
+function RadioButtonsGroup4(props) {
+  const classes = useStyles();
+  const [value, setValue] = React.useState("e");
+
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend"> {props.question} </FormLabel>
+        <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
+          <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
+          <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
+          <FormControlLabel value= "c" control={<Radio />} label= {props.c} />
+          <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
+        </RadioGroup>
+      </FormControl>
+    </div>
+  );
+}
+
+function RadioButtonsGroup5(props) {
+  const classes = useStyles();
+  const [value, setValue] = React.useState("f");
+
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend"> {props.question} </FormLabel>
+        <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
+          <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
+          <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
+          <FormControlLabel value= "c" control={<Radio />} label= {props.c} />
+          <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
+          <FormControlLabel value= "e" control={<Radio />} label= {props.e} />
+        </RadioGroup>
+      </FormControl>
+    </div>
+  );
+}
+
+function RadioButtonsGroup6(props) {
+  const classes = useStyles();
+  const [value, setValue] = React.useState("g");
+
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend"> {props.question} </FormLabel>
+        <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
+          <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
+          <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
+          <FormControlLabel value= "c" control={<Radio />} label= {props.c} />
+          <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
+          <FormControlLabel value= "e" control={<Radio />} label= {props.e} />
+          <FormControlLabel value= "f" control={<Radio />} label= {props.f} />
+        </RadioGroup>
+      </FormControl>
+    </div>
+  );
+}
+
+export default function Registration() {
+    const classes = useStyles();
+
+    const [values, setValues] = React.useState({
+      name: 'Cat in the Hat',
+      age: '',
+      multiline: 'Controlled',
+      currency: 'EUR',
+    });
+  
+    const handleChange = name => event => {
+      setValues({ ...values, [name]: event.target.value });
+    };
+
+    return (
+        <Container component="main" maxWidth="xs">
+          <Typography variant="h4" className={classes.title}>
+            Registration
+          </Typography>
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Typography>
+              Thank you for considering PODER as your new educational home. Please fill out the following registration form and review our policies on the back. We look forward to seeing you in the classroom!
+            </Typography>
+            <form className={classes.form} noValidate>
+              <form className={classes.container} noValidate autoComplete="off">
+                <TextField
+                  id="outlined-name"
+                  label="Name"
+                  className={classes.textField}
+                  onChange={handleChange('name')}
+                  margin="normal"
+                  variant="outlined"
+                />
+
+                <TextField
+                  id="outlined-zipcode"
+                  label="Zip Code"
+                  className={classes.textField}
+                  onChange={handleChange('zipcode')}
+                  margin="normal"
+                  variant="outlined"
+                />
+
+                <TextField
+                  id="outlined-email-input"
+                  label="Email"
+                  className={classes.textField}
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  margin="normal"
+                  variant="outlined"
+                />
+
+                <RadioButtonsGroup6 
+                  question="How did you hear about PODER?" 
+                  a = "Friend or Relative" 
+                  b = "Community Organization"
+                  c = "Church"
+                  d = "Voluntarily "
+                  e = "Internet" 
+                  f = "Flyer"
+                />
+
+                <RadioButtonsGroup5 
+                  question="What is your primary reason for choosing PODER?" 
+                  a = "To learn English" 
+                  b = "To obtain a job "
+                  c = "Training/ Job Assistance"
+                  d = "Computers and Technology"
+                  e = "Other" 
+                  f = "Flyer"
+                />  
+                <RadioButtonsGroup4
+                  question="Please select the location you would like to receive your classes:" 
+                  a = "Pulaski/ Marquette Bank (6155 S. Pulaski)" 
+                  b = "Kedzie/ MFS (6422 S. Kedzie)"
+                  c = "Sawyer/ St. Gall Parish (5533 S. Sawyer)"
+                  d = "Stevenson/ MFS (8010 S. Kostner)"
+                /> 
+
+                <RadioButtonsGroup2
+                  question="Please select the class time you prefer:" 
+                  a = "Morning (AM)" 
+                  b = "Evening (PM) "
+                />    
+
+                <RadioButtonsGroup6
+                  question="What is your main form of transportation?" 
+                  a = "Walking" 
+                  b = "Bus"
+                  c = "Car"
+                  d = "Train"
+                  e = "Other" 
+                  f = "Carpool with a friend or relative"
+                />  
+              </form>
+            </form>
+          </div>
+          <Button
+            type="next"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.next}
+            href="/venturestest"
+          >
+            Next
+          </Button>
+          <Box mt={8}>
+            <Copyright />
+          </Box>
+        </Container>
+      );
 }

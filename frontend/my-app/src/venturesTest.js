@@ -76,7 +76,13 @@ function Copyright() {
     function handleChange(event) {
       setValue(event.target.value);
     }
-  
+
+    function checkAnswer(value,answer) {
+        if (value == answer) {
+            this.setScore(this.score + 1)
+        }
+    }
+
     return (
       <div>
         <FormControl component="fieldset" className={classes.formControl}>
@@ -88,9 +94,7 @@ function Copyright() {
             <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
           </RadioGroup>
         </FormControl>
-        if ({value} == {props.answer}) {
-            () => this.setScore(this.score + 1)
-        }
+        {checkAnswer(value,props.answer)}
       </div>
     );
   }
