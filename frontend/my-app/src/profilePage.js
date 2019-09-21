@@ -53,11 +53,22 @@ class profilePage extends React.Component {
 			 	</div>
 			 	 <br /> <br /> <br /> <br />
 			 	<div className="card-box">
-			 		<p className="Classes"> Classes </p>
+			 		<p className="Classes"> Resources </p>
 			 		<p className="description"> (Click here to view classes) </p>
 			 	</div>
+				<br /> <br /> <br /> <br />
+				 <Button
+					type="next"
+					fullWidth
+					size = "large"
+					variant="contained"
+					color="primary"
+				>
+					Linkedin
+				</Button>
 		    </div>
 		);
+	
 	}
 }
 

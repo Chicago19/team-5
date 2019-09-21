@@ -4,9 +4,9 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 //import App from './App';
 import SignIn from './SignIn';
-import Album from './registrationForm';
-import * as serviceWorker from './serviceWorker';
-
+import Registration from './registrationForm';
+import VenturesTest from './venturesTest';
+import profilePage from './pro
 const routing = (
 	<Router>
 		<div>
@@ -15,7 +15,9 @@ const routing = (
 			<Route path="/registration" component={Album} />
 			<Route path="/registration" component={Registration} />
 			<Route path="/venturestest" component={VenturesTest} />
-      <Route path="/profilePage" component={profilePage} />
+      		<Route path="/profilePage" component={profilePage} />
+
+
 		</div>
 	</Router>
 )

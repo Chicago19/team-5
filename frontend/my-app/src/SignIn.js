@@ -13,14 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
-
 import { withStyles } from "@material-ui/core/styles";
-function sendLoginData(){
-  axios.post('http://localhost:3004/login', {
-    username: 'Fred',
-    password: 'Flintstone'
-  }).then("DO SOMETHIHNG WITH THIS DATA")
-}
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -53,72 +46,6 @@ class loginPage extends React.Component{
     this.state = {username: '', password: ''}
   }
 
-<<<<<<< HEAD
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-       <img className="logo"
-        src={require("./small-logo.png")}
-        style={{width: 75, height: 75, margin: 10}}
-        />
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            style={{width: 50, height: 50}}
-            onClick={sendLoginData()}
-          >
-            Sign In
-          </Button>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.newUser}
-            href="/registration"
-          >
-            New User
-          </Button>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
-=======
  handleEmailChange=(event)=>{
      this.setState({username: event.target.value});
      console.log(this.state.username)
@@ -138,8 +65,6 @@ class loginPage extends React.Component{
       username: this.state.username,
       password: this.state.password
     }).then(res=>(console.log(res.data["Type"])))
-
-
   }
 
   render() {
@@ -211,4 +136,3 @@ class loginPage extends React.Component{
 }
 
 export default withStyles(useStyles)(loginPage);
->>>>>>> 8ec741285e62e149375ccfcc1053aaa4109e8ed1

@@ -24,19 +24,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Slider from '@material-ui/core/Slider';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import axios from 'axios';
+import { withStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -201,21 +190,67 @@ function RadioButtonsGroup6(props) {
 //   }).then(res=>(console.log(res.data["Type"])))
 // }
 
-export default function Registration() {
-    const classes = useStyles();
+class registrationPage extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {name: " ", zipcode: 0, email: " ", password: " ", age: 0, q1: " ", q2: " ", q3: " ", q4: " ", q5: " "}
+  }
 
-    const [values, setValues] = React.useState({
-      name: 'Cat in the Hat',
-      age: '',
-      multiline: 'Controlled',
-      currency: 'EUR',
-    });
-  
-    const handleChange = name => event => {
-      setValues({ ...values, [name]: event.target.value });
-    };
+  handleNameChange=(event)=>{
+      this.setState({name: event.target.name});
+  }
 
-    return (
+  handleZipChange=(event)=>{
+    this.setState({zip: event.target.zip});
+  }
+
+  handleEmailChange=(event)=>{
+    this.setState({email: event.target.email});
+  }
+
+  handlePasswordChange=(event)=>{
+    this.setState({password: event.target.password});
+  }
+
+  handleAgeChange=(event)=>{
+    this.setState({age: event.target.age});
+  }
+
+  handleQ1Change=(event)=>{
+    this.setState({q1: event.target.q1});
+  }
+
+  handleQ2Change=(event)=>{
+    this.setState({q2: event.target.q2});
+  }
+
+  handleQ3Change=(event)=>{
+    this.setState({q3: event.target.q3});
+  }
+
+  handleQ4Change=(event)=>{
+    this.setState({q4: event.target.q4});
+  }
+
+  handleQ5Change=(event)=>{
+    this.setState({q5: event.target.q5});
+  }
+
+  handleSubmit=(event)=>{
+    event.preventDefault();
+    axios.post('http://localhost:3001/registration', {
+      username: this.state.score
+    }).then(res=>(console.log(res.data["Type"])))
+  }
+
+    render() {
+      const { classes } = this.props;
+      const handleChange = name => event => {
+        setValues({ ...values, [name]: event.target.value });
+      const [values, setValues] = React.useState({
+        });
+      };
+      return (
         <Container component="main" maxWidth="xs">
           <Typography variant="h4" className={classes.title}>
             Registration
@@ -334,9 +369,9 @@ export default function Registration() {
           >
             Next
           </Button>
-          <Box mt={8}>
-            <Copyright />
-          </Box>
         </Container>
       );
+    }
 }
+
+export default withStyles(useStyles)(registrationPage);
