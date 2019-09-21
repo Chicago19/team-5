@@ -26,9 +26,9 @@ class profilePage extends React.Component {
 	    }
 
 		return (
-			 <div className="Nav-Bar">
+			 <div className="Nav-Bar" style={{marginBottom: 100}}>
 		      <div className="root">
-			     <AppBar position="static" className="bar" style={{ background: 'lightgrey' }}>
+			     <AppBar position="static" className="bar" style={{ background: 'lightgrey'}}>
 			        <Toolbar>
 				        <img className="logo-full"
 				          src={require("./poder-full.png")} 
@@ -56,22 +56,6 @@ class profilePage extends React.Component {
 			 		<p className="Classes"> Classes </p>
 			 		<p className="description"> (Click here to view classes) </p>
 			 	</div>
-		      <Paper className="papers" style={{marginTop: 100, height: 100, width:950, marginLeft: 225}}>
-		        <Typography variant="h5" component="h3" style={{marginLeft: 50}}>
-		          Classes
-		        </Typography>
-		        <Typography component="p" className="description">
-		          (click to view course page)
-		        </Typography>
-		      </Paper>
-		      <Paper className="papers" style={{marginTop: 100, height: 100, width:950, marginLeft: 225}}>
-		        <Typography variant="h5" component="h3">
-		          Calendar 
-		        </Typography>
-		        <Typography component="p">
-		          (click to view class calendars)
-		        </Typography>
-		      </Paper>
 		    </div>
 		);
 	}

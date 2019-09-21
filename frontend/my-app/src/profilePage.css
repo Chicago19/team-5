@@ -14,16 +14,17 @@
   background: #64b3d8;
 }
 .Classes {
-	align-items: center;
+	text-align: center;
 	color: white;
 	font-size: 30px;
 	margin-left: 25px;
-	margin-bottom: 0px;
 }
 .description {
+	text-align: center;
 	color: white;
-	padding: 0px;
+	margin-top: 0px;
 	margin-left: 25px;
+	margin-bottom: 35px;
 }
 .menuButton {
   marginRight: theme.spacing(2),
