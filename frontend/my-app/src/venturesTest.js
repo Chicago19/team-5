@@ -146,7 +146,7 @@ const useStyles = makeStyles(theme => ({
             >
             </RadioButtonsGroup>
             <Button
-                type="next"
+                type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
