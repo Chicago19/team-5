@@ -23,6 +23,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Slider from '@material-ui/core/Slider';
 
 function Copyright() {
   return (
@@ -62,6 +63,7 @@ const useStyles = makeStyles(theme => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    alignItems: 'center'
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -72,6 +74,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    alignItems: 'center'
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -81,7 +84,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
   },
   menu: {
-    width: 200,
+    width: 300,
   },
 }));
 
@@ -182,6 +185,22 @@ function RadioButtonsGroup6(props) {
   );
 }
 
+// sendRegistrationData = (event) =>{
+//   axios.post('http://localhost:3001/registration', {
+//     name: 'Fred Flintstone',
+//     zipcode: '01234',
+//     email: 'fred@flintstone.com',
+//     password: 'abcd',
+//     age: '22',
+//     question1: 'a',
+//     question2: 'a',
+//     question3: 'a',
+//     question4: 'a',
+//     question5: 'a'
+
+//   }).then(res=>(console.log(res.data["Type"])))
+// }
+
 export default function Registration() {
     const classes = useStyles();
 
@@ -236,6 +255,29 @@ export default function Registration() {
                   margin="normal"
                   variant="outlined"
                 />
+
+                <TextField
+                  id="outlined-password"
+                  label="Password"
+                  className={classes.textField}
+                  margin="normal"
+                  variant="outlined"
+                />    
+
+                <div className = {classes.menu}>
+                <Typography>
+                  Age
+                </Typography>
+                <Slider
+                  defaultValue={32}
+                  aria-labelledby="Age"
+                  aria-label = "Age"
+                  valueLabelDisplay="auto"
+                  step={1}
+                  min={16}
+                  max={80}
+                />
+                </div>
 
                 <RadioButtonsGroup6 
                   question="How did you hear about PODER?" 

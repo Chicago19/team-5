@@ -111,7 +111,11 @@ app.post('/score', function(req, res){
 
 })
 app.get('/', function (req, res) {
+<<<<<<< HEAD
 	console.log(req);
+=======
+  res.send()
+>>>>>>> 8ec741285e62e149375ccfcc1053aaa4109e8ed1
 })
 
 

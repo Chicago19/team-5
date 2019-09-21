@@ -33,8 +33,7 @@ function Copyright() {
       </Typography>
     );
   }
-
-  const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
         backgroundColor: theme.palette.common.white,
@@ -68,39 +67,45 @@ function Copyright() {
     },
   }));
 
+//   sendScoreData = (event) =>{
+//     event.preventDefault();
+//     axios.post('http://localhost:3001/score', {
+//       score: 5
+//     }).then(res=>(console.log(res.data["Type"])))
+//   }
+
   function RadioButtonsGroup(props) {
+    const [correct, setCorrect] = React.useState(0);
+
     const classes = useStyles();
     const [value, setValue] = React.useState("e");
 
-  
     function handleChange(event) {
       setValue(event.target.value);
-    }
-
-    function checkAnswer(value,answer) {
-        if (value == answer) {
-            this.setScore(this.score + 1)
-        }
+      if (value == props.answer) {
+        setCorrect(1)
+      }else{
+        setCorrect(0)
+      }
     }
 
     return (
       <div>
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend"> {props.question} </FormLabel>
-          <RadioGroup aria-label="Question" name="Question1" value={value} onChange={handleChange}>
+          <RadioGroup aria-label="Question" name="Question" value={value} onChange={handleChange}>
             <FormControlLabel value= "a" control={<Radio />} label= {props.a} />
             <FormControlLabel value= "b" control={<Radio />} label= {props.b} />
             <FormControlLabel value= "c" control={<Radio />} label= {props.c} />
             <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
           </RadioGroup>
         </FormControl>
-        {checkAnswer(value,props.answer)}
       </div>
     );
   }
 
   export default function VenturesTest() {
-    const [score, setScore] = useState(0);
+    const [count, setCount] = React.useState(0);
     const classes = useStyles();
     return (
         <Container component="main" maxWidth="xs">
@@ -113,7 +118,7 @@ function Copyright() {
             src={require("./party.png")} 
             style={{width: 420, height: 240, margin: 10}}
             />
-            <form className={classes.form} noValidate>
+            <form className={classes.form} noValidate onSubmit={this.sendScoreData}>
             <RadioButtonsGroup 
             question="1. What's the mother's name?" 
             a = "His name is Pilar." 
@@ -121,7 +126,9 @@ function Copyright() {
             c = "Their name is Pilar."
             d = "Your name is Pilar."
             answer = "b"
-            />
+            >
+            {() => setCount(count + this.state.correct)}
+            </RadioButtonsGroup>
 
             <RadioButtonsGroup 
             question="2. There are three __ on the table." 
@@ -130,7 +137,8 @@ function Copyright() {
             c = "cake"
             d = "plate"
             answer = "b"
-            />
+            >{() => setCount(count + this.state.correct)}
+            </RadioButtonsGroup>
 
             <RadioButtonsGroup 
             question="3. Is Ramona happy?" 
@@ -139,8 +147,18 @@ function Copyright() {
             c = "Yes, he is."
             d = "Yes, they are."
             answer = "a"
-            />
-
+            >{() => setCount(count + this.state.correct)}
+            </RadioButtonsGroup>
+            <Button
+                type="next"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.next}
+                href="/venturestest"
+                >
+                Next
+            </Button>
             </form>
           </div>
           <Box mt={8}>
