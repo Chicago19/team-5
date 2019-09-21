@@ -1,7 +1,7 @@
 # team-5
 
 # Code for good 
-We created an app to help the non profit company Poder.
+We created an app to help the non profit company Poder. It is an all in one dashboard to help automate tedious tasks such as manual data entry.
 
 # Initial start directions
 1. npm install
@@ -16,3 +16,4 @@ We created an app to help the non profit company Poder.
 1. cd ./backend
 2. mongo
 3. node index.js
+
