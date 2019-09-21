@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1, 2, 3];
 
-export default function Album() {
+export default function Registration() {
   const classes = useStyles();
 
   return (
