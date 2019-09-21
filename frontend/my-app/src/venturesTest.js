@@ -67,17 +67,24 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+  function sendScoreData(){
+    axios.post('http://localhost:3001/score', {
+      score: 5
+    }).then("DO SOMETHIHNG WITH THIS DATA")
+  }
+
   function RadioButtonsGroup(props) {
-    const [correct, setCorrect] = React.useState(false);
+    const [correct, setCorrect] = React.useState(0);
+
     const classes = useStyles();
     const [value, setValue] = React.useState("e");
 
     function handleChange(event) {
       setValue(event.target.value);
       if (value == props.answer) {
-        setCorrect(true)
+        setCorrect(1)
       }else{
-        setCorrect(false)
+        setCorrect(0)
       }
     }
 
@@ -118,7 +125,9 @@ const useStyles = makeStyles(theme => ({
             c = "Their name is Pilar."
             d = "Your name is Pilar."
             answer = "b"
-            ></RadioButtonsGroup>
+            >
+            {() => setCount(count + this.state.correct)}
+            </RadioButtonsGroup>
 
             <RadioButtonsGroup 
             question="2. There are three __ on the table." 
@@ -127,7 +136,8 @@ const useStyles = makeStyles(theme => ({
             c = "cake"
             d = "plate"
             answer = "b"
-            />
+            >{() => setCount(count + this.state.correct)}
+            </RadioButtonsGroup>
 
             <RadioButtonsGroup 
             question="3. Is Ramona happy?" 
@@ -136,8 +146,19 @@ const useStyles = makeStyles(theme => ({
             c = "Yes, he is."
             d = "Yes, they are."
             answer = "a"
-            />
-
+            >{() => setCount(count + this.state.correct)}
+            </RadioButtonsGroup>
+            <Button
+                type="next"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.next}
+                href="/venturestest"
+                onClick={sendScoreData()}
+                >
+                Next
+            </Button>
             </form>
           </div>
           <Box mt={8}>
