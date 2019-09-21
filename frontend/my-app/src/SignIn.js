@@ -12,16 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-<<<<<<< Updated upstream
-=======
 import axios from 'axios';
-
-
-
-function handleEmailChange(e) {
-   this.setState({value: e.target.value});
-}
->>>>>>> Stashed changes
 
 function Copyright() {
   return (
@@ -36,8 +27,6 @@ function Copyright() {
   );
 }
 
-<<<<<<< Updated upstream
-=======
 function sendLoginData(){
   axios.post('http://localhost:3001/login', {
     username: 'Fred',
@@ -45,7 +34,6 @@ function sendLoginData(){
   }).then(res=>(console.log(res.data["Type"])))
 }
 
->>>>>>> Stashed changes
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -58,8 +46,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  logo: {
-    margin: theme.spacing(2)
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -67,7 +56,7 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  }
+  },
 }));
 
 export default function SignIn() {
@@ -77,14 +66,14 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <img className={classes.logo}
-          style={{width: 75, height: 75}}
-          src={require('./poder-small.png')}
+       <img className="logo"
+        src={require("./poder-small.png")} 
+        style={{width: 75, height: 75, margin: 10}}
         />
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
+        <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -95,12 +84,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
-<<<<<<< Updated upstream
-=======
-            value={this.state.email} 
-            onChange={this.handleEmailChange} 
+        
            
->>>>>>> Stashed changes
           />
           <TextField
             variant="outlined"
@@ -120,10 +105,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-<<<<<<< Updated upstream
-=======
             onClick={sendLoginData()}
->>>>>>> Stashed changes
           >
             Sign In
           </Button>
@@ -133,6 +115,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.newUser}
+            href="/registration"
           >
             New User
           </Button>
