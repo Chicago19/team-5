@@ -38,9 +38,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  logo: {
+    margin: theme.spacing(2)
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -48,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },
+  }
 }));
 
 export default function SignIn() {
@@ -58,9 +57,10 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+        <img className={classes.logo}
+          style={{width: 75, height: 75}}
+          src={require('./poder-small.png')}
+        />
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
@@ -87,10 +87,6 @@ export default function SignIn() {
             id="password"
             autoComplete="current-password"
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
@@ -100,18 +96,15 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.newUser}
+          >
+            New User
+          </Button>
         </form>
       </div>
       <Box mt={8}>
