@@ -1,18 +1,18 @@
-
 const express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
+const mongoose = require('mongoose');
 const app = express()
+
 
 app.use(bodyParser.json())
 app.use(cors());
-
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/users',
 {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
@@ -20,16 +20,17 @@ const ObjectId = Schema.ObjectId;
 const User = new Schema({
   userID: ObjectId,
   studentID: String,
-  username: String,
   email: String,
   password: String,
   firstname: String,
   lastname: String,
-  userType: String
+  userType: String,
+  score: Number
 });
 
 
-const myModel = mongoose.model('user', User);
+
+const myModel = mongoose.model('usercollection', User);
 
 
 
@@ -38,14 +39,14 @@ app.post('/login', function (req, res) {
 	email = loginJson["email"];
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
-	
-	myModel.find({email: username}, function (err, docs) {
+
+	myModel.find({email: email}, function (err, docs) {
 		if(docs.length != 0)
 		{
 			if (docs[0].password == this.password)
 			{
 				res.send({status: "OK"})
-			} 
+			}
 			else{
 				res.send({status: "ERR"})
 			}
@@ -55,7 +56,7 @@ app.post('/login', function (req, res) {
 			res.send({status: "ERR"})
 		}
 	});
-	
+
 })
 
 
@@ -63,10 +64,23 @@ app.post('/login', function (req, res) {
 
 app.post('/register', function (req, res) {
 	loginJson = req.body;
-	username = loginJson["username"];
+	email = loginJson["email"];
 
 	// TODO: THIS IS STORED IN PLAIN TEXT. NEEDS TO BE HASHED.
 	password = loginJson["password"];
+
+  var instance = new myModel();
+  instance.userID = ObjectId;
+  instance.studentID = null;
+  instance.username = username;
+  instance.email = email;
+  instance.password = password;
+  instance.firstname = null;
+  instance.lastname = null;
+  instance.userType = 'stu'
+  instance.save(function (err) {
+    //
+  });
 
 
 })
@@ -103,4 +117,4 @@ app.get('/', function (req, res) {
 
 // Start the server
 
-app.listen(3001)
+app.listen(3004)
