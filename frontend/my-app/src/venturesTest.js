@@ -88,7 +88,7 @@ function Copyright() {
             <FormControlLabel value= "d" control={<Radio />} label= {props.d} />
           </RadioGroup>
         </FormControl>
-        if (value == {props.answer}) {
+        if ({value} == {props.answer}) {
             () => this.setScore(this.score + 1)
         }
       </div>
